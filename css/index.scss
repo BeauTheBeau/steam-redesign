@@ -1,0 +1,232 @@
+
+:root {
+  --background: 23, 26, 33;
+  --text: 255, 255, 255;
+  --primary: 0, 163, 224;
+  --secondary: 68, 132, 204;
+  --tertiary: 255, 128, 128;
+
+}
+
+// Basic styles
+
+body, html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(to bottom, rgba(var(--background), 1), rgba(var(--background), 1));
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(var(--text), 1);
+}
+
+// Navigation
+
+.navbar {
+
+  background-color: rgba(var(--background), 1);
+  height: 6rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  .navbar__logo {
+    flex: 1;
+    height: 50%;
+    width: 10rem;
+    padding: 0 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+
+  ul {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0.2rem;
+
+    list-style: none;
+
+    .navbar__item {
+      height: 100%;
+      padding: 0 1rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .navbar__links {
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-weight: 500;
+        color: rgba(var(--text), 1);
+
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: rgba(var(--primary), 1);
+        }
+      }
+    }
+  }
+
+
+  //<div class="navbar__user">
+  //<a href="#" class="navbar__icons-link"><span class="material-symbols-outlined">search</span></a>
+  //<a href="#" class="navbar__icons-link"><span class="material-symbols-outlined">shopping_cart</span></a>
+  //
+  //<div class="profile__picture">
+  //<img src="img/profile.webp" alt="Profile Picture">
+  //</div>
+  //
+  //</div>
+
+  .navbar__user {
+    flex: 1;
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: row;
+    gap: 1rem;
+
+    .navbar__icons-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 1.5rem;
+      color: rgba(var(--text), 1);
+
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: rgba(var(--primary), 1);
+      }
+    }
+
+    .profile__picture {
+
+      height: 48px;
+      aspect-ratio: 1/1;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        border: 2px solid rgba(var(--text), 1);
+      }
+
+    }
+
+  }
+
+}
+
+main {
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+.swiper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4rem;
+  overflow: hidden;
+}
+
+.swiper-slide {
+
+  .swiper__slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.75);
+    transition: all 0.3s ease;
+  }
+
+  .swiper__slide-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(var(--text), 1);
+    transition: all 0.3s ease;
+  }
+
+  .swiper__slide-description {
+    position: relative;
+    opacity: 0;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(var(--text), 1);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+
+    cursor: pointer;
+
+    .swiper__slide-description {
+      top: 75%;
+      opacity: 1;
+    }
+
+    .swiper__slide-title {
+    }
+
+    .swiper__slide-background {
+      filter: brightness(0.5) blur(16px);
+    }
+
+  }
+
+}

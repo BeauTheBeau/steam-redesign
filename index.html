@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Beam - A Steam Redesign</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Beam - A Steam Redesign">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://beauthebeau.github.io/beam">
+  <meta property="og:image" content="https://beauthebeau.github.io/beam/img/beam.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="img/favicon.ico">
+  <link rel="icon" href="img/favicon.ico" type="image/png" sizes="16x16">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <a href="#" class="navbar__logo"><img src="img/logo_steam.svg" alt="Steam Logo"></a>
+  <ul class="navbar__menu">
+    <li class="navbar__item">
+      <a href="#" class="navbar__links" id="home-page">Store</a>
+    </li>
+    <li class="navbar__item">
+      <a href="#" class="navbar__links" id="games-page">Community</a>
+    </li>
+    <li class="navbar__item">
+      <a href="#" class="navbar__links" id="signup">Chat</a>
+    </li>
+    <li class="navbar__item">
+      <a href="#" class="navbar__links" id="about-page">Support</a>
+    </li>
+  </ul>
+  <div class="navbar__user">
+    <a href="#" class="navbar__icons-link"><span class="material-symbols-outlined">search</span></a>
+    <a href="#" class="navbar__icons-link"><span class="material-symbols-outlined">shopping_cart</span></a>
+    <div class="profile__picture">
+      <img src="img/profile.webp" alt="Profile Picture">
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <img class="swiper__slide-background"
+             alt="BattleBit Remastered"
+             src="https://cdn.cloudflare.steamstatic.com/steam/apps/671860/header.jpg?t=1686877598">
+        <h2 class="swiper__slide-title">BattleBit Remastered</h2>
+        <p class="swiper__slide-description">BattleBit Remastered is a low-poly, massive multiplayer FPS, supporting 254
+          players per server. Battle on a near-fully destructible map with various vehicles!</p>
+      </div>
+
+      <div class="swiper-slide">
+        <img class="swiper__slide-background"
+             alt="BattleBit Remastered"
+             src="https://cdn.cloudflare.steamstatic.com/steam/apps/671860/header.jpg?t=1686877598">
+        <h2 class="swiper__slide-title">BattleBit Remastered</h2>
+        <p class="swiper__slide-description">BattleBit Remastered is a low-poly, massive multiplayer FPS, supporting 254
+          players per server. Battle on a near-fully destructible map with various vehicles!</p>
+      </div>
+
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+</main>
+
+<script type="module" defer src="js/main.js"></script>
+</body>
+
+</html>
