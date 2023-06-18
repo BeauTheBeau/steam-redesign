@@ -1,0 +1,10 @@
+{
+  "name": "beam",
+  "version": "0.0.1",
+  "description": "Redesign of the Steam website",
+  "keywords": ["redesign", "steam", "html", "css", "kill me"],
+  "license": "GNU GPL v3",
+  "author": "BeauTheBeau",
+  "scripts": {},
+  "devDependencies": {}
+}
