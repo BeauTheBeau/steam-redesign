@@ -5,6 +5,7 @@
   --primary: 0, 163, 224;
   --secondary: 68, 132, 204;
   --tertiary: 255, 128, 128;
+  --swiper-theme-color: var(--primary);
 
 }
 
@@ -16,7 +17,7 @@ body, html {
 
 body {
   background: linear-gradient(to bottom, rgba(var(--background), 1), rgba(var(--background), 1));
-  color: var(--text);
+  color: rgba(var(--text), 1);
 }
 
 * {
@@ -33,8 +34,9 @@ a {
 
 .navbar {
 
-  background-color: rgba(var(--background), 1);
+  background-color: rgba(var(--background), 0.75);
   height: 6rem;
+  backdrop-filter: blur(10px);
 
   display: flex;
   flex-direction: row;
@@ -46,7 +48,6 @@ a {
   z-index: 999;
 
   .navbar__logo {
-    flex: 1;
     height: 50%;
     width: 10rem;
     padding: 0 1rem;
@@ -63,8 +64,6 @@ a {
 
 
   ul {
-    flex: 1;
-
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -102,8 +101,6 @@ a {
   }
 
   .navbar__user {
-    flex: 1;
-
     height: 100%;
     display: flex;
     justify-content: center;
@@ -173,8 +170,18 @@ main {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    filter: brightness(0.75);
     z-index: -1;
+    transition: all 0.3s ease;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(var(--background), 0), rgba(var(--background), 0.25), rgba(var(--background), 1));
+    opacity: 1;
     transition: all 0.3s ease;
   }
 
@@ -184,8 +191,8 @@ main {
 
   .swiper__slide-title {
     position: absolute;
-    top: 80%;
-    opacity: .0;
+    top: 55%;
+    opacity: 1;
     left: 0;
     right: 0;
     padding: 1rem;
@@ -197,11 +204,33 @@ main {
 
   .swiper__slide-description {
     position: absolute;
-    opacity: 0;
-    top: 100%;
+    top: 75%;
+    opacity: 1;
     left: 0;
     right: 0;
     padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(var(--text), 1);
+    transition: all 0.3s ease;
+  }
+
+  .swiper__slide-link {
+    position: absolute;
+    top: 80%;
+    opacity: 0;
+    padding: 1rem;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    max-width: 200px;
+    margin: auto;
+
+    background-color: rgba(var(--background), 1);
+    border-radius: 1rem;
+
     font-size: 1.5rem;
     font-weight: 500;
     color: rgba(var(--text), 1);
@@ -212,20 +241,142 @@ main {
 
     cursor: pointer;
 
-    .swiper__slide-description {
-      top: 75%;
-      opacity: 1;
+    .swiper__slide-title {
+      top: 80%;
+      opacity: .0;
     }
 
-    .swiper__slide-title {
-      top: 55%;
+    .swiper__slide-description {
+      opacity: 0;
+      top: 100%;
+    }
+
+    .swiper__slide-link {
       opacity: 1;
+      top: 75%;
+
+      &:hover {
+        background-color: rgba(var(--primary), 1);
+        color: rgba(var(--background), 1);
+      }
+    }
+
+    .overlay {
+      opacity: 0;
     }
 
     .swiper__slide-background {
-      filter: brightness(0.5) blur(8px);
+      filter: brightness(1) blur(0);
     }
 
   }
 
 }
+
+.swiper-button-prev, .swiper-button-next {
+  color: rgba(var(--text), 1);
+
+  &::after {
+    content: "<span class='material-symbols-outlined'>arrow_circle_right</span>";
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(var(--text), 1);;
+    transition: all 0.3s ease;
+  }
+
+  &:hover::after {
+    color: rgba(var(--primary), 1);
+  }
+
+}
+
+.games__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  .games__grid-item {
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    color: black;
+
+    .games__grid-item-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .games__grid-item-title {
+      position: absolute;
+      top: 80%;
+      opacity: 0;
+      left: 50%;
+      width: 100%;
+      text-align: center;
+      transform: translateX(-50%);
+      padding: 1rem;
+      font-size: 2rem;
+      font-weight: 800;
+      color: rgba(var(--text), 1);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .games__grid-item-price {
+
+      position: absolute;
+      top: 100%;
+      opacity: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 1rem;
+
+      font-size: 1rem;
+      font-weight: 100;
+      color: rgba(var(--text), 0.8);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      .games__grid-item-price--original {
+        text-decoration: line-through;
+      }
+
+      .games__grid-item-price--discount {
+        color: rgba(var(--primary), 1);
+        font-weight: 800;
+      }
+
+    }
+
+    &:hover {
+
+      cursor: pointer;
+
+      .games__grid-item-title {
+        top: 50%;
+        opacity: 1;
+      }
+
+      .games__grid-item-price {
+        opacity: 1;
+        top: 75%;
+      }
+
+      .games__grid-item-background {
+        rotate: 5deg;
+        width: 125%;
+        height: 125%;
+        top: -12.5%;
+        left: -12.5%;
+        filter: brightness(0.5) blur(8px);
+      }
+    }
+
+  }
+}
+

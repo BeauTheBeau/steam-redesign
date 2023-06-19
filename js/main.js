@@ -2,7 +2,16 @@ import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.brow
 
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
-  loop: true,
+  loop: false,
+
+  preventClicks: false,
+  preventClicksPropagation: false,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+
+  },
 
   pagination: {
     el: '.swiper-pagination',
@@ -13,25 +22,3 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
 });
-
-// const swiper = new Swiper('.swiper', {
-//   // Optional parameters
-//   direction: 'vertical',
-//   loop: true,
-//
-//   // If we need pagination
-//   pagination: {
-//     el: '.swiper-pagination',
-//   },
-//
-//   // Navigation arrows
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev',
-//   },
-//
-//   // And if we need scrollbar
-//   scrollbar: {
-//     el: '.swiper-scrollbar',
-//   },
-// });
