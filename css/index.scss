@@ -101,17 +101,6 @@ a {
     }
   }
 
-
-  //<div class="navbar__user">
-  //<a href="#" class="navbar__icons-link"><span class="material-symbols-outlined">search</span></a>
-  //<a href="#" class="navbar__icons-link"><span class="material-symbols-outlined">shopping_cart</span></a>
-  //
-  //<div class="profile__picture">
-  //<img src="img/profile.webp" alt="Profile Picture">
-  //</div>
-  //
-  //</div>
-
   .navbar__user {
     flex: 1;
 
@@ -164,6 +153,8 @@ a {
 main {
   max-width: 1200px;
   padding: 1rem;
+  margin: auto;
+
 }
 
 .swiper {
@@ -175,7 +166,7 @@ main {
 
 .swiper-slide {
 
-  .swiper__slide-background {
+  video.swiper__slide-background, img.swiper__slide-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -183,12 +174,18 @@ main {
     width: 100%;
     object-fit: cover;
     filter: brightness(0.75);
+    z-index: -1;
     transition: all 0.3s ease;
+  }
+
+  .swiper__slide-title, .swiper__slide-description {
+    z-index: 1;
   }
 
   .swiper__slide-title {
     position: absolute;
-    top: 0;
+    top: 80%;
+    opacity: .0;
     left: 0;
     right: 0;
     padding: 1rem;
@@ -199,7 +196,7 @@ main {
   }
 
   .swiper__slide-description {
-    position: relative;
+    position: absolute;
     opacity: 0;
     top: 100%;
     left: 0;
@@ -221,10 +218,12 @@ main {
     }
 
     .swiper__slide-title {
+      top: 55%;
+      opacity: 1;
     }
 
     .swiper__slide-background {
-      filter: brightness(0.5) blur(16px);
+      filter: brightness(0.5) blur(8px);
     }
 
   }
