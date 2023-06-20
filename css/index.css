@@ -4,7 +4,7 @@
   --primary: 0, 163, 224;
   --secondary: 68, 132, 204;
   --tertiary: 255, 128, 128;
-  --swiper-theme-color: var(--primary);
+  --swiper-theme-color: rgba(var(--text), 1) !important;
 }
 
 body, html {
@@ -30,11 +30,13 @@ a {
   background-color: rgba(var(--background), 0.75);
   height: 6rem;
   backdrop-filter: blur(10px);
+  width: 100%;
+  box-shadow: 10px 0 10px rgba(var(--primary), 0.5);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 999;
 }
@@ -117,11 +119,21 @@ main {
   margin: auto;
 }
 
-.swiper {
+header {
+  height: calc(100vh - 6rem);
+  margin-top: 6rem;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper {
+  height: 75dvh;
   aspect-ratio: 16/9;
-  border-radius: 4rem;
   overflow: hidden;
+  margin: auto;
+  border-radius: 4rem;
 }
 
 .swiper-slide video.swiper__slide-background, .swiper-slide img.swiper__slide-background {
@@ -299,6 +311,15 @@ main {
   top: -12.5%;
   left: -12.5%;
   filter: brightness(0.5) blur(8px);
+}
+
+.swiper-pagination-bullet {
+  border: 1px solid rgba(var(--text), 1) !important;
+  background-color: rgba(var(--text), 1) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: rgba(var(--primary), 1) !important;
 }
 
 /*# sourceMappingURL=index.css.map */

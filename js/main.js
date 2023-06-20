@@ -10,7 +10,6 @@ const swiper = new Swiper('.swiper', {
     delay: 5000,
     disableOnInteraction: false,
     pauseOnMouseEnter: true,
-
   },
 
   pagination: {
@@ -21,4 +20,10 @@ const swiper = new Swiper('.swiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+});
+
+swiper.on('slideChange', function () {
+  const currentSlide = swiper.slides[swiper.activeIndex];
+  const video = currentSlide.querySelector('video');
+  if (video) video.play();
 });
